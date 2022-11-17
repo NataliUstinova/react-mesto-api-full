@@ -1,0 +1,28 @@
+.popup__input_type_error {
+  color: #FF0000;
+  font-size: 12px;
+  line-height: 1.21;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 142px;
+  left: 36px;
+  z-index: 1;
+  max-width: 358px;
+}
+
+.popup__input_type_error-2 {
+  top: 204px;
+}
+
+@media screen and (max-width: 540px) {
+  .popup__input_type_error {
+    top: 147px;
+    left: 22px;
+  }
+
+  .popup__input_type_error-2 {
+    top: 210px;
+  }
+}
+

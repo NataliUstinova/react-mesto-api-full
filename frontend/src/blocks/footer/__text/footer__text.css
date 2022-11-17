@@ -1,0 +1,21 @@
+.footer__text {
+  margin: 0 auto;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 1.22;
+  color: #545454;
+  max-width: 880px;
+}
+
+@media screen and (max-width: 1024px) {
+  .footer__text {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .footer__text {
+    font-size: 14px;
+    line-height: 1.21;
+  }
+}

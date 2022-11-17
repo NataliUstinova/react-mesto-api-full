@@ -1,0 +1,29 @@
+.auth__input_type_error {
+  color: #FF0000;
+  font-size: 12px;
+  line-height: 1.21;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 171px;
+  left: 0;
+  z-index: 1;
+  max-width: 358px;
+}
+
+.auth__input_type_error-2 {
+  top: 233px;
+  left: 0;
+}
+
+@media screen and (max-width: 900px) {
+  .auth__input_type_error {
+    width: 260px;
+    top: 135px;
+    left: 30px;
+  }
+  .auth__input_type_error-2 {
+    width: 260px;
+    top: 197px;
+  }
+}

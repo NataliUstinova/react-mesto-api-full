@@ -1,0 +1,10 @@
+.auth__link {
+  padding-left: 5px;
+  text-decoration: none;
+}
+.auth__link:visited {
+  color: #fff;
+}
+.auth__link:hover {
+  opacity: 0.5;
+}

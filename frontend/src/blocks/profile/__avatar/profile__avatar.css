@@ -1,0 +1,15 @@
+.profile__avatar {
+  width: 120px;
+  height: 120px;
+  clip-path: circle(60px at center);
+  margin: 40px 30px 21px 0;
+  object-fit: cover;
+  object-position: center;
+  position: relative;
+}
+
+@media screen and (max-width: 560px) {
+  .profile__avatar {
+    margin: 42px auto 26px;
+  }
+}
