@@ -68,7 +68,7 @@ class Api {
 }
 
 export const api = new Api({
-  baseUrl: "https://api.mesto.nata.u.nomoredomains.icu/",
+  baseUrl: "https://api.mesto.nata.u.nomoredomains.icu",
   headers: {
     "Content-Type": "application/json",
   },
