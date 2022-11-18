@@ -36,34 +36,53 @@ function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSuccess, setIsSuccess] = useState(true);
 
-  function tokenCheck() {
-    const jwt = localStorage.getItem("jwt");
-    if (jwt) {
-      authApi
-        .getContent(jwt)
-        .then((res) => {
-          if (res) {
-            setEmail(res.data.email);
-            setLoggedIn(true);
-            history.push("/");
-          }
-        })
-        .catch((err) => console.log(err));
-    }
-  }
-
+  // function tokenCheck() {
+  //   const jwt = localStorage.getItem("jwt");
+  //   if (jwt) {
+  //     authApi
+  //       .getContent(jwt)
+  //       .then((res) => {
+  //         if (res) {
+  //           setEmail(res.email);
+  //           setLoggedIn(true);
+  //           history.push("/");
+  //         }
+  //       })
+  //       .catch((err) => console.log(err));
+  //   }
+  // }
+  
   useEffect(() => {
-    tokenCheck();
+    authApi
+      .getContent()
+      .then((res) => {
+        if (res) {
+          setCurrentUser(res);
+          setEmail(res.email);
+          setLoggedIn(true);
+          history.push("/");
+        }
+      })
+      .catch((err) => console.log(err));
+  }, []);
+  
+  useEffect(() => {
+    if (!loggedIn) return;
+    
     api
       .getUserInfoServer()
       .then((res) => setCurrentUser(res))
       .catch((err) => console.log(err));
     api
       .getInitialCards()
-      .then((res) => setCards(res))
+      .then((res) => {
+        setCards(res.reverse());
+        history.push("/");
+      })
       .catch((err) => console.log(err));
-  }, []);
-
+  }, [loggedIn]);
+  
+  
   function handleCardClick(cardData) {
     setIsImagePopupOpen(true);
     setSelectedCard(cardData);
@@ -131,7 +150,7 @@ function App() {
   }
 
   function handleCardLike(card) {
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    const isLiked = card.likes.some((i) => i === currentUser._id);
     api
       .changeLikeCardStatus(card._id, !isLiked)
       .then((newCard) => {
@@ -160,7 +179,7 @@ function App() {
     authApi
       .register(email, password)
       .then((res) => {
-        if (res.data._id || res.data.email) {
+        if (res.email) {
           setIsSuccess(true);
           setTimeout(() => {
             handleLogin(email, password);
@@ -177,14 +196,11 @@ function App() {
   function handleLogin(email, password) {
     authApi
       .login(email, password)
-      .then((data) => {
-        if (data.token) {
+      .then(() => {
           setIsModalOpen(false);
-          localStorage.setItem("jwt", data.token);
           setLoggedIn(true);
           setEmail(email);
           history.push("/");
-        }
       })
       .catch((err) => {
         console.log(err);
@@ -194,7 +210,6 @@ function App() {
   }
 
   function handleLogout() {
-    localStorage.removeItem("jwt");
     setEmail("");
     setLoggedIn(false);
     history.push("/sign-in");

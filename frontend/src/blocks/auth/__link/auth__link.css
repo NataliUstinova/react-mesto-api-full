@@ -1,6 +1,7 @@
 .auth__link {
   padding-left: 5px;
   text-decoration: none;
+  color: #fff;
 }
 .auth__link:visited {
   color: #fff;

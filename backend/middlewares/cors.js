@@ -1,4 +1,5 @@
 const allowedCors = [
+  'http://localhost:3001',
   'http://localhost:3000',
   'https://mesto.nata.u.nomoredomains.icu',
   'https://api.mesto.nata.u.nomoredomains.icu',
@@ -6,7 +7,7 @@ const allowedCors = [
   'http://api.mesto.nata.u.nomoredomains.icu',
 ];
 
-const cors = (req, res, next) => {
+module.exports = (req, res, next) => {
   const { origin } = req.headers; // Сохраняем источник запроса в переменную origin
   // сохраняем список заголовков исходного запроса
   const requestHeaders = req.headers['access-control-request-headers'];
@@ -17,6 +18,7 @@ const cors = (req, res, next) => {
   if (allowedCors.includes(origin)) {
     // устанавливаем заголовок, который разрешает браузеру запросы с этого источника
     res.header('Access-Control-Allow-Origin', origin);
+    res.header('Access-Control-Allow-Credentials', true);
   }
   if (method === 'OPTIONS') {
     // разрешаем кросс-доменные запросы любых типов (по умолчанию)
@@ -29,5 +31,3 @@ const cors = (req, res, next) => {
 
   return next();
 };
-
-module.exports = cors;

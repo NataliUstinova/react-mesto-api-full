@@ -11,12 +11,14 @@ class Api {
   getUserInfoServer() {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers,
+      credentials: 'include',
     }).then(this._checkServerResponse);
   }
 
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
       headers: this._headers,
+      credentials: 'include',
     }).then(this._checkServerResponse);
   }
 
@@ -24,6 +26,7 @@ class Api {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: this._headers,
+      credentials: 'include',
       body: JSON.stringify({
         name,
         about,
@@ -34,6 +37,7 @@ class Api {
   addUserCard(card) {
     return fetch(`${this._baseUrl}/cards`, {
       method: "POST",
+      credentials: 'include',
       headers: this._headers,
       body: JSON.stringify({
         name: card.name,
@@ -46,6 +50,7 @@ class Api {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
+      credentials: 'include',
       body: JSON.stringify({
         avatar: input.avatar,
       }),
@@ -55,6 +60,7 @@ class Api {
   deleteCard(id) {
     return fetch(`${this._baseUrl}/cards/${id}`, {
       method: "DELETE",
+      credentials: 'include',
       headers: this._headers,
     }).then(this._checkServerResponse);
   }
@@ -63,13 +69,16 @@ class Api {
     return fetch(`${this._baseUrl}/cards/${id}/likes`, {
       method: isLiked ? "PUT" : "DELETE",
       headers: this._headers,
+      credentials: 'include',
     }).then(this._checkServerResponse);
   }
 }
 
 export const api = new Api({
   baseUrl: "https://api.mesto.nata.u.nomoredomains.icu",
+  // baseUrl: "http://localhost:3001",
   headers: {
     "Content-Type": "application/json",
+    
   },
 });

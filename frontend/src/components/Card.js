@@ -8,13 +8,12 @@ export default function Card({
   onCardBinClick,
 }) {
   const currentUser = useContext(CurrentUserContext);
-
-  const isOwned = card.owner._id === currentUser._id;
+  const isOwned = card.owner === currentUser._id;
   const cardDeleteButtonClassName = `card__delete ${
     isOwned ? "card__delete-button_visible" : "card__delete-button_hidden"
   }`;
 
-  const isLiked = card.likes.some((i) => i._id === currentUser._id);
+  const isLiked = card.likes.some((i) => i === currentUser._id);
   const cardLikeButtonClassName = `card__like ${
     isLiked && "card__like_active"
   }`;
