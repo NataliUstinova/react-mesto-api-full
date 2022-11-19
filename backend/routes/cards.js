@@ -8,29 +8,29 @@ const { urlValidatorPattern } = require('../constants/constants');
 
 router.get('/', auth, getAllCards);
 
-router.post('/', celebrate({
+router.post('/', auth, celebrate({
   body: Joi.object().keys({
     name: Joi.string().required().min(2).max(30),
     link: Joi.string().required().pattern(urlValidatorPattern),
   }),
-}), auth, createCard);
+}), createCard);
 
-router.delete('/:cardId', celebrate({
+router.delete('/:cardId', auth, celebrate({
   params: Joi.object().keys({
     cardId: Joi.string().required().hex().length(24),
   }),
-}), auth, deleteCard);
+}), deleteCard);
 
-router.put('/:cardId/likes', celebrate({
+router.put('/:cardId/likes', auth, celebrate({
   params: Joi.object().keys({
     cardId: Joi.string().required().hex().length(24),
   }),
-}), auth, likeCard);
+}), likeCard);
 
-router.delete('/:cardId/likes', celebrate({
+router.delete('/:cardId/likes', auth, celebrate({
   params: Joi.object().keys({
     cardId: Joi.string().required().hex().length(24),
   }),
-}), auth, dislikeCard);
+}), dislikeCard);
 
 module.exports = router;
