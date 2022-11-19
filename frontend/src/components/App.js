@@ -210,9 +210,15 @@ function App() {
   }
 
   function handleLogout() {
-    setEmail("");
-    setLoggedIn(false);
-    history.push("/sign-in");
+    authApi.logout()
+      .then(() => {
+        setEmail("");
+        setLoggedIn(false);
+        history.push("/sign-in");
+      })
+      .catch((err) => {
+      console.log(err);
+      })
   }
 
   return (
