@@ -32,8 +32,8 @@ export default function EditProfilePopup({
   return (
     <PopupWithForm
       isOpen={isOpen}
-      title="Редактировать профиль"
-      button={isLoading ? "Сохранение..." : "Сохранить"}
+      title="Edit Profile"
+      button={isLoading ? "Saving..." : "Save"}
       onClose={onClose}
       isDisabled={!isDisabled}
       onSubmit={handleSubmit}
@@ -46,7 +46,7 @@ export default function EditProfilePopup({
         className={`popup__input ${errors.name && "popup__error_visible"}`}
         type="text"
         name="name"
-        placeholder="Имя"
+        placeholder="Name"
         value={values.name || ""}
         onChange={handleInputChange}
       />
@@ -62,7 +62,7 @@ export default function EditProfilePopup({
         type="text"
         name="about"
         value={values.about || ""}
-        placeholder="Деятельность"
+        placeholder="About"
         onChange={handleInputChange}
       />
       <span

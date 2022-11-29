@@ -35,7 +35,7 @@ const Popup = ({ isOpen, onClose, children }) => {
         <button
           className="popup__close"
           type="button"
-          aria-label="Закрыть"
+          aria-label="close"
         ></button>
       </div>
     </div>

@@ -229,7 +229,7 @@ function App() {
           loggedIn={loggedIn}
           onLogout={handleLogout}
           link="/sign-up"
-          linkText="Регистрация"
+          linkText="Register"
         />
         <Switch>
           <ProtectedRoute
@@ -261,28 +261,28 @@ function App() {
           onClose={closeAllPopups}
           isSuccess={isSuccess}
         />
-        {/*Попап редактирования профиля*/}
+        
         <EditProfilePopup
           isOpen={isEditProfilePopupOpen}
           onClose={closeAllPopups}
           onUpdateUser={handleUpdateUser}
           isLoading={isLoading}
         />
-        {/*Попап изменения аватара*/}
+
         <EditAvatarPopup
           isOpen={isEditAvatarPopupOpen}
           onClose={closeAllPopups}
           onUpdateUser={handleUpdateAvatar}
           isLoading={isLoading}
         />
-        {/*Попап добавления карточки*/}
+
         <AddPlacePopup
           isOpen={isAddPlacePopupOpen}
           onClose={closeAllPopups}
           onCardSubmit={handleAddPlace}
           isLoading={isLoading}
         />
-        {/*Попап удаления карточки*/}
+
         <DeleteCardPopup
           isOpen={isDeletePopupOpen}
           isLoading={isLoading}
@@ -290,7 +290,7 @@ function App() {
           onClose={closeAllPopups}
           onCardDelete={handleCardDelete}
         />
-        {/*Попап открытия картинки*/}
+        
         <ImagePopup
           isOpen={isImagePopupOpen}
           onClose={closeAllPopups}

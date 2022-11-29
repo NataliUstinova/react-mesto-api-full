@@ -19,7 +19,7 @@ export default function PopupWithForm({
             className={`popup__save ${isDisabled && "popup__save_disabled"}`}
             type="submit"
           >
-            {button || "Сохранить"}
+            {button || "Save"}
           </button>
         </form>
       </div>

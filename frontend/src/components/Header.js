@@ -11,18 +11,18 @@ export default function Header({ email, loggedIn, onLogout }) {
         {loggedIn && <p className="header__email">{email}</p>}
         {loggedIn && (
           <p className="header__link header__logout" onClick={onLogout}>
-            Выйти
+            Logout
           </p>
         )}
       </div>
       {location.pathname === "/sign-in" && (
         <Link className="header__link" to="/sign-up">
-          Регистрация
+          Register
         </Link>
       )}
       {location.pathname === "/sign-up" && (
         <Link className="header__link" to="/sign-in">
-          Войти
+          Login
         </Link>
       )}
     </header>

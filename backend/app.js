@@ -26,7 +26,7 @@ app.use(cors);
 // Apply the rate limiting middleware to all requests
 app.use(limiter);
 app.use(helmet());
-// app.disable('x-powered-by');
+app.disable('x-powered-by');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

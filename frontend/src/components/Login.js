@@ -6,8 +6,8 @@ const Login = ({ onLogin }) => {
     <Auth
       onLogin={onLogin}
       isLoginForm={true}
-      title="Вход"
-      buttonText="Войти"
+      title="Login"
+      buttonText="Login"
       autocomplete="current-password"
     ></Auth>
   );

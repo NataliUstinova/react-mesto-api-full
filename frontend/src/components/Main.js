@@ -19,7 +19,7 @@ export default function Main({
       <section className="profile">
         <img
           src={currentUser.avatar || avatar}
-          alt="Аватар"
+          alt="Avatar"
           className="profile__avatar profile__avatar-input"
         />
         <button
@@ -33,7 +33,7 @@ export default function Main({
             onClick={onEditProfile}
             className="profile__edit-button"
             type="button"
-            aria-label="редактировать"
+            aria-label="edit"
           ></button>
           <p className="profile__job">{currentUser.about}</p>
         </div>
@@ -41,7 +41,7 @@ export default function Main({
           onClick={onAddPlace}
           className="profile__add-button"
           type="button"
-          aria-label="Добавить"
+          aria-label="add"
         ></button>
       </section>
 

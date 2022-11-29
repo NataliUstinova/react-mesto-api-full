@@ -18,8 +18,8 @@ const AddPlacePopup = ({ isOpen, onClose, onCardSubmit, isLoading }) => {
   return (
     <PopupWithForm
       isOpen={isOpen}
-      title="Новое место"
-      button={isLoading ? "Сохранение..." : "Добавить"}
+      title="New place"
+      button={isLoading ? "Saving..." : "Add"}
       onClose={onClose}
       isDisabled={!isDisabled}
       onSubmit={handleSubmit}
@@ -35,7 +35,7 @@ const AddPlacePopup = ({ isOpen, onClose, onCardSubmit, isLoading }) => {
         type="text"
         name="name"
         value={values.name || ""}
-        placeholder="Название"
+        placeholder="Picture title"
         onChange={handleInputChange}
       />
       <span className={errors.name && "popup__input_type_error"}>
@@ -50,7 +50,7 @@ const AddPlacePopup = ({ isOpen, onClose, onCardSubmit, isLoading }) => {
         type="url"
         name="link"
         value={values.link || ""}
-        placeholder="Ссылка на картинку"
+        placeholder="Link to a picture"
         onChange={handleInputChange}
       />
       <span

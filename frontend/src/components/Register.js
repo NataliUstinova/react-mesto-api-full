@@ -7,13 +7,13 @@ const Register = ({ onRegister }) => {
     <Auth
       onRegister={onRegister}
       isLoginForm={false}
-      title="Регистрация"
+      title="Register"
       autocomplete="new-password"
     >
       <div className="auth__text-container">
-        <p className="auth__text">Уже зарегистрированы?</p>
+        <p className="auth__text">Already registered?</p>
         <Link to={"/sign-in"} className="auth__text auth__link">
-          Войти
+          Login
         </Link>
       </div>
     </Auth>

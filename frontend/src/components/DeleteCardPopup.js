@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import PopupWithForm from "./PopupWithForm";
-import useValidation from "../hooks/useValidation";
 
 const DeleteCardPopup = ({
   isOpen,
@@ -21,8 +20,8 @@ const DeleteCardPopup = ({
       isLoading={isLoading}
       isDisabled={false}
       onSubmit={handleCardDelete}
-      title="Вы уверены?"
-      button={isLoading ? "Удаление..." : "Да"}
+      title="Are you sure?"
+      button={isLoading ? "Deleting..." : "Yes"}
     />
   );
 };

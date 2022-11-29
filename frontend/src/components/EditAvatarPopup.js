@@ -17,7 +17,7 @@ const EditAvatarPopup = ({ isOpen, onClose, onUpdateUser, isLoading }) => {
     });
   }
 
-  //пример с использованием useRef
+  //example using useRef
   // const avatarRef = React.useRef()
   // useEffect(() => {
   //   avatarRef.current.value = ''
@@ -34,21 +34,21 @@ const EditAvatarPopup = ({ isOpen, onClose, onUpdateUser, isLoading }) => {
     <PopupWithForm
       isOpen={isOpen}
       isDisabled={!isDisabled}
-      title="Обновить аватар"
-      button={isLoading ? "Сохранение..." : "Сохранить"}
+      title="Update Avatar"
+      button={isLoading ? "Saving..." : "Save"}
       onClose={onClose}
       onSubmit={handleSubmit}
     >
       <input
         id="avatar"
         required
-        //пример с использованием useRef
+        // example using useRef
         // ref={avatarRef}
         value={values.avatar || ""}
         className={`popup__input ${errors.avatar && "popup__error_visible"}`}
         type="url"
         name="avatar"
-        placeholder="Ссылка на аватар"
+        placeholder="Link to an avatar"
         onChange={handleInputChange}
       />
       <span className={errors.avatar && "popup__input_type_error"}>

@@ -46,7 +46,7 @@ export default function Card({
             onClick={handleLikeClick}
             className={cardLikeButtonClassName}
             type="button"
-            aria-label="Нравится"
+            aria-label="like"
           ></button>
           <p className="card__like-counter">
             {card.likes.length > 0 ? card.likes.length : ""}

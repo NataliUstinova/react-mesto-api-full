@@ -12,12 +12,12 @@ const InfoTooltip = ({ isOpen, onClose, isSuccess }) => {
             <img
               className="modal__icon"
               src={isSuccess ? success : fail}
-              alt={isSuccess ? "успешно" : "не успешно"}
+              alt={isSuccess ? "success" : "fail"}
             />
             <h1 className="modal__heading">
               {isSuccess
-                ? "Вы успешно зарегистрировались!"
-                : "Что-то пошло не так! Попробуйте ещё раз."}
+                ? "You have successfully registered!"
+                : "Something went wrong! Please try again"}
             </h1>
           </div>
         </div>

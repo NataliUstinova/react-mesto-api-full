@@ -54,7 +54,7 @@ const Auth = ({
           type="password"
           name="password"
           value={values.password || ""}
-          placeholder="Пароль"
+          placeholder="Password"
           onChange={handleInputChange}
         />
         <span
@@ -70,7 +70,7 @@ const Auth = ({
           }
           type="submit"
         >
-          {isLoginForm ? "Войти" : "Зарегистрироваться"}
+          {isLoginForm ? "Login" : "Register"}
         </button>
         {children}
       </form>
